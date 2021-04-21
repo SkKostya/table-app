@@ -12,7 +12,7 @@ export const Container = styled.div`
   background-color: transparent;
 
     ${StyledTable} {
-      border-spacing: 0 16px;
+      border-spacing: 0 0;
       border-collapse: separate;
     }
 `;

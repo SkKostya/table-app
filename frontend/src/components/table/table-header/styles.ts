@@ -13,7 +13,12 @@ export const Th = styled.th`
 `;
 
 export const Thead = styled.thead`
-  line-height: 0;
   border: none;
+  line-height: 0;
   background-color: inherit;
+
+  & > tr > ${Th} {
+    padding-bottom: 16px;
+    border-bottom: 1px solid ${colors.darkTelegray};
+  }
 `;

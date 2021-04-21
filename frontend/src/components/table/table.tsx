@@ -20,7 +20,7 @@ interface IProps {
 const Table = ({
   data,
   columns,
-  onRowClick = () => null
+  onRowClick
 }: IProps) => {
   return (
     <Container>
