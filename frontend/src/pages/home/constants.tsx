@@ -1,7 +1,9 @@
 import React from "react";
 import moment from "moment";
 
-export const TABLE_COLUMNS = () => [
+import { RemoveButton } from "./styles";
+
+export const TABLE_COLUMNS = (deleteRow: (id: number) => void) => [
   {
     key: "date",
     width: "25%",
@@ -9,7 +11,7 @@ export const TABLE_COLUMNS = () => [
     render: (rowItem: any) => (
       <React.Fragment>
         <div>
-          {moment(rowItem.date).format("YYYY.MM.DD hh:mm")}
+          {moment(rowItem.createdat).format("YYYY.MM.DD hh:mm")}
         </div>
       </React.Fragment>
     )
@@ -26,7 +28,7 @@ export const TABLE_COLUMNS = () => [
   },
   {
     key: "amount",
-    width: "12.5%",
+    width: "12%",
     label: "Количество",
     render: (rowItem: any) => (
       <React.Fragment>
@@ -36,7 +38,7 @@ export const TABLE_COLUMNS = () => [
   },
   {
     key: "distance",
-    width: "12.5%",
+    width: "12%",
     label: "Расстояние",
     render: (rowItem: any) => (
       <React.Fragment>
@@ -44,4 +46,30 @@ export const TABLE_COLUMNS = () => [
       </React.Fragment>
     )
   },
+  {
+    key: "remove",
+    width: "1%",
+    render: (rowItem: any) => (
+      <React.Fragment>
+        <RemoveButton onClick={() => deleteRow(rowItem.id)} title="Удалить">&times;</RemoveButton>
+      </React.Fragment>
+    )
+  },
 ];
+
+
+export const NAMES = ["Конфеты", "Печеньки", "Пряники"];
+
+export const FIELDS:any = {
+  "Все": "all",
+  "Название": "name",
+  "Количество": "amount",
+  "Расстояние": "distance"
+};
+
+export const OPERATORS:any = {
+  "Равно": "equal",
+  "Содержит": "contains",
+  "Больше": "more",
+  "Меньше": "less",
+};

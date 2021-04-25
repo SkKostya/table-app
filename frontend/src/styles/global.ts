@@ -20,6 +20,10 @@ const globalStyles = createGlobalStyle`
   body {
     background-color: white;
   }
+
+  .root {
+    min-height: 100%;
+  }
 `;
 
 export default globalStyles;

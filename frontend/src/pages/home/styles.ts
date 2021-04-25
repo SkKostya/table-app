@@ -1,8 +1,14 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { colors } from "../../constants";
 
-export const Header = styled.div`
+export const Wrapper = styled.div`
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+`;
+
+export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -23,4 +29,37 @@ export const FilterInput = styled.input`
   line-height: 17px;
   color: ${colors.darkTelegray};
   background-color: ${colors.white};
+`;
+
+export const Footer = styled.footer`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  padding-bottom: 30px;
+`;
+
+export const PageButton = styled.button<{ isActive: boolean }>`
+  padding: 10px;
+  width: 39px;
+  border: 1px solid ${colors.darkTelegray};
+  border-radius: 50%;
+  font-size: 14px;
+  line-height: 17px;
+  color: ${colors.grayBlue};
+
+  &:not(:last-child) {
+    margin-right: 16px;
+  }
+
+  ${({ isActive }) =>
+  isActive && css`
+    box-shadow: inset 0 0 10px 5px ${colors.lavender};
+  `}
+`;
+
+export const RemoveButton = styled.button`
+  font-size: 30px;
+  color: red;
+  cursor: pointer;
 `;
